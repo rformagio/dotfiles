@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#Java Home
+JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.8.0_181"
+
+#General path
+PATH="/usr/bin:/usr/local/bin:/opt/conemu:/opt/conemu/ConEmu:/opt/conemu/ConEmu/Scripts"
+#OpenSSH
+PATH="$PATH:/cygdrive/c/Windows/System32/OpenSSH"
+#Git
+PATH="$PATH:/cygdrive/c/Program Files/Git/cmd"
+#Maven
+PATH="$PATH:/cygdrive/c/Softwares/maven36/bin"
+#Gradlle
+PATH="$PATH:/cygdrive/c/Softwares/gradle52/bin"
+#Java
+PATH="$PATH:$JAVA_HOME/bin"
+#Python
+PATH="$PATH:/cygdrive/c/Users/rodrigo/AppData/Local/Programs/Python/Python37-32/Scripts:/cygdrive/c/Users/rodrigo/AppData/Local/Programs/Python/Python37-32"
+#Groovy
+PATH="$PATH:/cygdrive/c/Softwares/groovy256/bin"
+#Pearl
+
+#Kotlin
