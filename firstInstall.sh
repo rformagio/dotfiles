@@ -45,5 +45,16 @@ if [ $ENV_DOTFILES -eq 1 ]; then
     cp cygwin/.bash_profile ../
     cp cygwin/.bashrc ../ 
 
+    echo "Would you like to use SDKMAN(y/n) ?"
+    echo
+    echo
+    read ENV_SDKMAN
 
+    if [ ENV_SDKMAN = "y" ]; then
+        # sdkman
+        curl -s "https://get.sdkman.io" | bash
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
+        # install maven 
+        sdk install maven 3.6.0
+    fi
 fi 

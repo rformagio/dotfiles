@@ -10,13 +10,16 @@ shopt -s globstar
 
 force_color_prompt=yes
 
-source "${HOME}/dotfiles/cygwin/.cyg_path"
-
+if [ ! -d "${HOME}/.sdkman" ]; then
+    source "${HOME}/dotfiles/cygwin/.cyg_path"
+fi
 source "${HOME}/dotfiles/cygwin/libs/colors.sh"
 source "${HOME}/dotfiles/cygwin/libs/functions.sh"
 
 source "${HOME}/dotfiles/cygwin/.alias"
 source "${HOME}/dotfiles/cygwin/.prompt"
+
+settitle $USER
 
 #For Docker interactive 
 #eval $(docker-machine env default)

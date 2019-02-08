@@ -24,3 +24,8 @@ function getMavenVersion(){
 function getGroovyVersion(){
     groovy -v | sed -n '/groovy/{p;q;}'
 }
+
+function settitle () 
+{ 
+   echo -ne "\e]2;$@\a\e]1;$@\a"; 
+ }
