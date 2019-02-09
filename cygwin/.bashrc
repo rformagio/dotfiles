@@ -8,7 +8,11 @@ cd ~
 # Set (**)
 shopt -s globstar
 
+#To use colors in prompt
 force_color_prompt=yes
+
+#Throw an error if write to file that exists
+set -o noclobber
 
 if [ ! -d "${HOME}/.sdkman" ]; then
     source "${HOME}/dotfiles/cygwin/.cyg_path"
