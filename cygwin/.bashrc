@@ -49,7 +49,17 @@ fi
 echo
 echo "###################################################################################"
 
-#figlet -f standard "RF"
+echo "Customized by"
+echo
+
+if [ -e /bin/figlet.exe ]; then
+    figlet RF
+else
+    echo " 🕈 R𝓕  "
+fi
+echo " Rodrigo 𝓕ormagio - 2019"
+echo
+echo "            ヽ(⌐■_■)ノ♪♬"
 
 echo
 echo "This is a $INT_SHELL $LOGIN_SHELL shell!!"
