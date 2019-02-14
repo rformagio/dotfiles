@@ -35,5 +35,5 @@ Remember: I'm not a *pro* in shell script. My *dotfiles* are very simple but mee
    - If choose not to use it, so, it will put a *cyg_path*  file in $/dotfiles/cygwin$. This file redefines the PATH variable !! You can custmize your own PATH in it.
    
    The *firstInstall.sh* script will create a **backup** diretory with your original files. And the following diretories structure:
-   ![Directory] (dotfiles-diretory-structure.png?raw=true)
+   ![Directory] (dotfiles-directory-structure.png?raw=true)
 
