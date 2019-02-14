@@ -32,10 +32,10 @@ echo
 
 read ENV_DOTFILES
 
-if [ $ENV_DOTFILES -ne 1 -a $ENV_DOTFILES -ne 2 ]; then
+if [ "$ENV_DOTFILES" != "1" -a  "$ENV_DOTFILES" != "2" ] ;then
     echo "Option doesn't exist!"
     echo
-    echo "Skiping installation..."
+    echo ">>>>> Skiping installation..."
     exit 0
 fi
 
@@ -45,8 +45,9 @@ fi
 
 cp ../.* ../backup 2>null
 
-if [ $ENV_DOTFILES -eq 1 ]; then
+if [ "$ENV_DOTFILES" = "1" ]; then
 
+    echo
     echo "Installing dotfiles for Cygwin enviroment..."
     echo
     echo
@@ -56,20 +57,33 @@ if [ $ENV_DOTFILES -eq 1 ]; then
 
     if [ ! -d "${HOME}/.sdkman" ]; then
     
-        echo "Would you like to install SDKMAN(Y/n) ?"
+        echo "Would you like to install SDKMAN(y/N) ?"
         echo
         echo
         read ENV_SDKMAN
 
-        if [ ENV_SDKMAN = "y" ]; then
+        if [[ "$ENV_SDKMAN" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
             # Install SDKMAN
             curl -s "https://get.sdkman.io" | bash
             source "$HOME/.sdkman/bin/sdkman-init.sh"
             # Install maven 
             sdk install maven 3.6.0
         fi
-    fi 
+    fi
+
+    echo
+    echo ">>>>> Sucessfuly !!!"
+    echo
+    echo 
 fi
 
-echo
-echo "Sucessfuly !!!"
+if [ "$ENV_DOTFILES" = "2" ]; then
+
+    echo 
+    echo ">>>>> Sorry!"
+    echo
+    echo "This feature is still under construction !!! "
+    echo   
+    echo  "                   ƪ(˘⌣˘)┐ ƪ(˘⌣˘)ʃ ┌(˘⌣˘)ʃ"
+
+fi

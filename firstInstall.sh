@@ -48,10 +48,10 @@ echo
 
 read ENV_DOTFILES
 
-if [ $ENV_DOTFILES -ne 1 -a $ENV_DOTFILES -ne 2 ]; then
+if [ "$ENV_DOTFILES" != "1" -a  "$ENV_DOTFILES" != "2" ] ;then
     echo "Option doesn't exist!"
     echo
-    echo "Skiping installation..."
+    echo ">>>>> Skiping installation..."
     exit 0
 fi
 
@@ -61,8 +61,9 @@ fi
 
 cp ../.* ../backup 2>null
 
-if [ $ENV_DOTFILES -eq 1 ]; then
+if [ "$ENV_DOTFILES" = "1" ]; then
 
+    echo
     echo "Installing dotfiles for Cygwin enviroment..."
     echo
     echo
@@ -75,7 +76,7 @@ if [ $ENV_DOTFILES -eq 1 ]; then
     echo
     read ENV_SDKMAN
 
-    if [ ENV_SDKMAN = "y" ]; then
+    if [[ "$ENV_SDKMAN" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
         # Install SDKMAN
         curl -s "https://get.sdkman.io" | bash
         source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -84,5 +85,18 @@ if [ $ENV_DOTFILES -eq 1 ]; then
     fi
 
     echo
-    echo "Sucessfuly !!!"
+    echo ">>>>> Sucessfuly !!!"
+    echo
+    echo
 fi 
+
+if [ "$ENV_DOTFILES" = "2" ]; then
+
+    echo 
+    echo ">>>>> Sorry!"
+    echo
+    echo "This feature is still under construction !!! "
+    echo   
+    echo  "                   ?(???)? ?(???)? ?(???)?"
+
+fi

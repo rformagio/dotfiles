@@ -78,3 +78,14 @@ echo
 echo "###################################################################################"
 
 
+#Source custom files. Be carefull about OVERWRITE some variables.
+for file in ${HOME}/dotfiles/cygwin/custom/*; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+
+STATUS=$?
+if [ $STATUS -gt 0 ]; then
+    echo "    No custom file loaded!      ***********************************************"
+    echo
+    echo
+fi
