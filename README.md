@@ -34,6 +34,20 @@ Remember: I'm not a *pro* in shell script. My *dotfiles* are very simple but mee
    - If you choose to use SDKMAN, it will install Maven and SDKMAN tool will be available for use.
    - If choose not to use it, so, it will put a *cyg_path*  file in $/dotfiles/cygwin$. This file redefines the PATH variable !! You can custmize your own PATH in it.
    
-   The *firstInstall.sh* script will create a **backup** diretory with your original files. And the following diretories structure:
-   ![Directory] (dotfiles-directory-structure.png?raw=true)
+   The *firstInstall.sh* script will create a **backup** diretory with your original files. The general directories structure will be as following:
+   - home
+     - {user}
+       - backup
+       - dotfiles
+         - cygwin
+           - custom
+           - libs
+
+From this moment, you don´t need exec the *firstInstall.sh* script anymore. Everytime you update the *dotfiles* from my **github**, you only have to exec *update.sh* script.
+
+If you wish to customize something and don´t want to modify my original scripts, you can only add new script files in $custom$ diretory. These files will be sourced automatic. Just make sure they don´t have mistakes !! ;)
+
+Good luck and enjoy with *dotfiles*!!
+
+*Rodrigo Formagio*
 
