@@ -1,0 +1,24 @@
+#Prompt
+
+parse_git_branch() {
+  	local AUX=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  	if [ "$AUX" != "" ]; then 
+  		echo "($AUX)" 
+	fi
+}
+
+P_USER=${BBLUE}${USER_SYMBOL}
+P_HOST=${BCYAN}${HOST_SYMBOL}
+P_RESET=${RS}
+P_WHITE=${NWHITE}
+P_GREEN=${BGREEN}
+P_YELLOW=${NYELLOW}
+P_RED=${NRED}
+P_PATH=${P_YELLOW}${PATH_SYMBOL}
+
+ # Parse Git branch name
+P_GIT="\$(parse_git_branch)"
+
+PS1="\[\033]0\w\007\]\n"
+PS1+="\$(if [[ \$? == 0 ]]; then echo \"${BGREEN}[\342\234\223]\"; else echo \"${BRED}[\342\234\227]\"; fi)"
+PS1+=" ${P_USER}${P_WHITE}@${P_HOST}: ${P_PATH} ${P_GREEN}${P_GIT}  ${P_RESET} \n » "

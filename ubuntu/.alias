@@ -1,0 +1,16 @@
+alias ls='ls -hF --color=tty --show-control-chars'  # classify files in colour
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -lha'                                   # long list
+alias la='ls -A'                                     # all but . and ..
+alias l='ls -lh'                              
+
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+alias cd..="cd .."
+

@@ -48,12 +48,12 @@ cp ../.* ../backup 2>null
 if [ "$ENV_DOTFILES" = "1" ]; then
 
     echo
-    echo "Installing dotfiles for Cygwin enviroment..."
+    echo "Installing dotfiles for Ubuntu enviroment..."
     echo
     echo
 
-    cp cygwin/.bash_profile ../
-    cp cygwin/.bashrc ../ 
+    cp ubuntu/.bash_profile ../
+    cp ubuntu/.bashrc ../ 
 
     if [ ! -d "${HOME}/.sdkman" ]; then
     
@@ -68,8 +68,14 @@ if [ "$ENV_DOTFILES" = "1" ]; then
             source "$HOME/.sdkman/bin/sdkman-init.sh"
             # Install maven 
             sdk install maven 3.6.0
+            #Install gradle
+            sdk install gradle 6.3
         fi
     fi
+
+    #Install NODE
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    apt install nodejs
 
     echo
     echo ">>>>> Sucessfuly !!!"

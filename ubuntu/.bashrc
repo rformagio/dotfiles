@@ -15,13 +15,13 @@ force_color_prompt=yes
 set -o noclobber
 
 if [ ! -d "${HOME}/.sdkman" ]; then
-    source "${HOME}/dotfiles/cygwin/.cyg_path"
+    source "${HOME}/dotfiles/ubuntu/.ubu_path"
 fi
-source "${HOME}/dotfiles/cygwin/libs/colors.sh"
-source "${HOME}/dotfiles/cygwin/libs/functions.sh"
+source "${HOME}/dotfiles/ubuntu/libs/colors.sh"
+source "${HOME}/dotfiles/ubuntu/libs/functions.sh"
 
-source "${HOME}/dotfiles/cygwin/.alias"
-source "${HOME}/dotfiles/cygwin/.prompt"
+source "${HOME}/dotfiles/ubuntu/.alias"
+source "${HOME}/dotfiles/ubuntu/.prompt"
 
 settitle $USER
 
@@ -58,7 +58,7 @@ echo "# |_| \_\_|                                                               
 echo "#                                                                                           #"
 echo "# Rodrigo 𝓕ormagio - 2019                                                                   #"
 echo "#                                                                                           #"
-echo "#            ヽ(⌐■_■)ノ♪♬                                                                   #" 
+echo "#            ヽ(⌝■_■)ノ♪♬                                                                   #" 
 echo "#                                                                                           #"
 echo "#                                                                                           #"
 echo "#############################################################################################"
@@ -76,7 +76,7 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 
 #Source custom files. Be carefull about OVERWRITE some variables.
-for file in ${HOME}/dotfiles/cygwin/custom/*; do
+for file in ${HOME}/dotfiles/ubuntu/custom/*; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
