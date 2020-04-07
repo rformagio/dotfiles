@@ -92,11 +92,59 @@ fi
 
 if [ "$ENV_DOTFILES" = "2" ]; then
 
-    echo 
-    echo ">>>>> Sorry!"
     echo
-    echo "This feature is still under construction !!! "
-    echo   
-    echo  "                   ?(???)? ?(???)? ?(???)?"
+    echo "Installing dotfiles for Ubuntu enviroment..."
+    echo
+    echo
+
+    cp ubuntu/.bash_profile ../
+    cp ubuntu/.bashrc ../ 
+
+    sudo apt-get install git -y
+    sudo apt-get install openssh-server -y
+    sudo apt-get install unrar -y
+    # Generating SSH Key
+    ssh-keygen
+    cat .ssh/id_rsa.pub
+
+    #Docker
+    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    sudo apt update
+    apt-cache policy docker-ce
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
+    sudo systemctl status docker
+    sudo groupadd docker
+    sudo usermod -aG docker ${USER}
+    newgrp docker
+    su - ${USER}
+
+    echo "Would you like to install SDKMAN(Y/n) ?"
+    echo
+    echo
+    read ENV_SDKMAN
+
+    if [[ "$ENV_SDKMAN" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
+        # Install SDKMAN
+        curl -s "https://get.sdkman.io" | bash
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
+        # Install maven 
+        sdk install maven 3.6.0
+        #Install gradle
+        sdk install gradle 6.3
+    fi
+
+    #Install NODE
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    apt install nodejs
+    node --version
+    npm --version
+
+    echo
+    echo ">>>>> Sucessfuly !!!"
+    echo
+    echo
 
 fi

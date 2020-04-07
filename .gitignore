@@ -27,3 +27,4 @@ mvnw*
 
 /.vscode
 null
+*.log
